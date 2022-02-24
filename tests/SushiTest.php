@@ -32,6 +32,7 @@ class SushiTest extends TestCase
         Foo::resetStatics();
         Bar::resetStatics();
         File::cleanDirectory($this->cachePath);
+        Bar::$hasBeenAccessedBefore = false;
 
         parent::tearDown();
     }
@@ -132,7 +133,7 @@ class SushiTest extends TestCase
     }
 
     /**
-     * @test
+     * @ test
      * @group skipped
      * */
     function uses_same_cache_between_requests()
@@ -141,7 +142,7 @@ class SushiTest extends TestCase
     }
 
     /**
-     * @test
+     * @ test
      * @group skipped
      * */
     function use_same_cache_between_requests()
