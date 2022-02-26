@@ -5,7 +5,7 @@ namespace Tests;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Orchestra\Testbench\TestCase;
-use Sushi\Sushi;
+use Sushi\SushiTrain;
 
 class RelationsTest extends TestCase
 {
@@ -86,10 +86,7 @@ class RelationsTest extends TestCase
 }
 
 class ParentModel extends Model {
-    use Sushi;
-    protected static function sushiCache() {
-        return 'sushi-train';
-    }
+    use SushiTrain;
 
     protected $rows = [
         ['id' => 1, 'ref' => 'parent:1'],
@@ -110,10 +107,7 @@ class ParentModel extends Model {
 }
 
 class ChildModel extends Model {
-    use Sushi;
-    protected static function sushiCache() {
-        return 'sushi-train';
-    }
+    use SushiTrain;
 
     protected $rows = [
         ['id' => 1, 'ref' => 'child:1', 'parent_id' => 1],
@@ -130,10 +124,7 @@ class ChildModel extends Model {
 }
 
 class GrandChildModel extends Model {
-    use Sushi;
-    protected static function sushiCache() {
-        return 'sushi-train';
-    }
+    use SushiTrain;
 
     protected $rows = [
         ['id' => 1, 'ref' => 'grandchild:1', 'parent_id' => 1],
@@ -146,10 +137,7 @@ class GrandChildModel extends Model {
 }
 
 class DistantRelationModel extends Model {
-    use Sushi;
-    public static function sushiCache() {
-        return 'sushi-train';
-    }
+    use SushiTrain;
 
     protected $rows = [
         ['id' => 1, 'ref' => 'distant:1'],
@@ -162,10 +150,7 @@ class DistantRelationModel extends Model {
 }
 
 class DistantRelationModelParentModel extends Pivot {
-    use Sushi;
-    protected static function sushiCache() {
-        return 'sushi-train';
-    }
+    use SushiTrain;
 
     //protected $table = 'parent_model_distant_relation_model';
 
